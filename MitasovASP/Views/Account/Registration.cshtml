@@ -1,0 +1,58 @@
+﻿@model MitasovASP.Models.User
+<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    a {
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+    }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{
+    ViewBag.title = "Регистрация";
+}
+
+<div align="center" class="main">
+    <h1>Регистрация</h1>
+    <br>
+    <form asp-antiforgery="true" asp-controller="Account" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        <table cellspacing="5px">
+            <tr>
+                <td align="right"><label asp-for="Email"></label></td>
+                <td><input maxlength="50" type="text" asp-for="Email" /></td>
+                <td><span asp-validation-for="Email"></span></td>
+                <td align="right"><label asp-for="Tel"></label></td>
+                <td><input maxlength="11" type="number" asp-for="Tel" /></td>
+                <td><span asp-validation-for="Tel"></span></td>
+            </tr>
+            <tr>
+                <td align="right"><label asp-for="Password"></label></td>
+                <td><input maxlength="30" type="password" asp-for="Password" /></td>
+                <td><span asp-validation-for="Password"></span></td>
+            </tr>
+        </table>
+        <br><input type="submit" value="Зарегистрироваться" align="center" /><br>
+        @Html.ActionLink("Войти", "Login", "Account")
+
+    </form>
+</div>

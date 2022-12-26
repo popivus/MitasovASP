@@ -1,0 +1,48 @@
+﻿@using MitasovASP.Data.Models
+@model Cart
+<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{
+    ViewBag.title = "Корзина";
+}
+<div class="main">
+    <h3>Корзина</h3><br><br>
+    <center>
+        @if (Model.CartLines.Count == 0)
+        {
+            <p>Корзина пуста</p>
+        }
+        else
+        {
+            @for (int i = 0; i < Model.CartLines.Count; i++)
+            {
+                <div class="productCard">
+                @Model.CartLines[i].Name  -  @Model.CartLines[i].Price руб. <br><a href="/Catalog/RemoveFromCart?Number=@i">Убрать из корзины</a>
+                </div>
+            }
+        }
+        <br><br><br><br><hr><br>
+        <a href="@Url.Action("Pay", "Catalog")"><button>Оформить и оплатить заказ</button></a>
+    </center>
+</div>

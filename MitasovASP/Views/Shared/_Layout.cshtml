@@ -1,0 +1,47 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewData["title"]</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="back">
+    <header>
+        <div class="head">
+            <table height="100%" width="90%">
+                <tr>
+                    <td><div class="title">КирпичЛэнд</div></td>
+                    <td>@Html.ActionLink("Главная", "Index", "Home")</td>
+                    <td>@Html.ActionLink("Каталог", "Products", "Catalog")</td>
+                    <td>@Html.ActionLink("Контакты", "Contacts", "Home")</td>
+                    <td>@Html.ActionLink("Личный кабинет", "PersonalArea", "Account")</td>
+                    <td><a href="@Url.Action("Cart", "Catalog")"><img src="~/shop.svg" height="30px"></a></td>
+                </tr>
+            </table>
+        </div>
+    </header>
+    <br><br><br><br><br><br>
+    @RenderBody()
+    <br><br><br>
+    <footer class="bottom">
+        <br>
+        <p align="center">ВРЕМЯ РАБОТЫ</p>
+        <table width="100%">
+            <tr align="center">
+                <td>Магазин</td>
+                <td>Доставка</td>
+            </tr>
+            <tr></tr>
+            <tr align="center">
+                <td>Вс - Чт с 8:00 до 22:00</td>
+                <td>Ежедневно с 9:00 до 20:00</td>
+            </tr>
+            <tr align="center">
+                <td>Пт - Сб с 12:00 до 6:00</td>
+                <td><a href="tel:+79777890234">8(977)-789-02-34</a></td>
+            </tr>
+        </table>
+        <br><br>
+        <p align="center">Г. ЛЫТКАРИНО, УЛ. ОКТЯБРЬСКАЯ, 4<br><a href="tel:+79777890234">8(977)-789-02-34</a></p><br>
+    </footer>
+</body>
+</html>

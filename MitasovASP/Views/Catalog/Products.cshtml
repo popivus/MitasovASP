@@ -1,0 +1,71 @@
+﻿@using MitasovASP.Data.Models
+@model IEnumerable<Brick>
+<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{
+    ViewBag.title = "Каталог";
+}
+<div class="main">
+    <table align="center" width="100%" cellspacing="10px">
+        <tr>
+            <td><b>Цвет</b></td>
+            <td><b>Заполненность</b></td>
+            <td><b>Текстура</b></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"> Красный</td>
+            <td><input type="checkbox"> Щелевой</td>
+            <td><input type="checkbox"> Гладкий</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"> Коричневый</td>
+            <td><input type="checkbox"> Полнотелый</td>
+            <td><input type="checkbox"> Рифлёный</td>
+        </tr>
+    </table>
+    <center><input type="button" value="Фильтровать"></center><br>
+    <hr><br>
+        <table width="100%">
+            @{ 
+                for(int i = 0; i < Model.Count(); i = i + 3)
+                {
+                        <tr>
+                            @{
+                                for (int k = i; (k < i + 3) && (k < Model.Count()); k++)
+                                {
+                                    <td width="30%">
+                                        <div class="productCard">
+                                            @Model.ElementAt(k).Name<br><br>
+                                            <img width="70%" src="@Model.ElementAt(k).Image"><br><br>
+                                            <b>@Model.ElementAt(k).Price руб/штука</b><br><br>
+                                            <a href="/Catalog/AddToCart?ID=@Model.ElementAt(k).Id">В корзину</a>
+                                        </div>
+                                    </td>
+                                }
+                            }
+                        </tr>
+                }
+            }
+        </table>
+</div>

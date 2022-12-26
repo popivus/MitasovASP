@@ -1,0 +1,59 @@
+﻿@using MitasovASP.Data.Models
+@model IEnumerable<MitasovASP.Data.Models.Brick>
+<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{ 
+    ViewBag.title = "Главная";
+}
+<div class="main">
+    <h1 align="center">Кирпичи от 4.5 руб/штуку</h1><br>
+    <hr><br>
+    <h2>Самые популярные товары</h2>
+    <table width="100%">
+        @{
+            for (int i = 0; i < Model.Count(); i = i + 3)
+            {
+                <tr>
+                    @{
+                        for (int k = i; (k < i + 3) && (k < Model.Count()) && (k < 6); k++)
+                        {
+                            <td width="30%">
+                                <div class="productCard">
+                                    @Model.ElementAt(k).Name<br><br>
+                                    <img width="70%" src="@Model.ElementAt(k).Image"><br><br>
+                                    <b>@Model.ElementAt(k).Price руб/штука</b><br><br>
+                                    <br>
+                                    <input type="button" value="В каталог">
+                                </div>
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        }
+    </table>
+    <br>
+    <a href="@Url.Action("Products", "Catalog")"><h2 align="center">Просмотреть каталог</h2></a>
+</div>
+

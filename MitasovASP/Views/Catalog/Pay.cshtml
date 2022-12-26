@@ -1,0 +1,42 @@
+﻿<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{
+    ViewBag.title = "Оплата заказа";
+}
+<div class="main">
+    <h3>Оформление</h3><br>
+    <center>
+        Номер телефона: <input type="number" size="30px">
+        <br>Адрес: <input type="text" size="45px"><br>
+        Дата доставки: <input type="date"><br/>
+    </center><br><hr><br>
+    <h3>Оплата</h3><br>
+    <center>
+        Номер карты: <input type="number" maxlength="16"><br>
+        Срок годности: <input type="date" maxlength="16"><br>
+        Имя: <input type="text"><br>
+        CVV: <input type="number" maxlength="3"><br><br>
+        <a href="/Catalog/BrickPayed"><input type="button" value="Оплатить"></a><br>
+    </center>
+</div>

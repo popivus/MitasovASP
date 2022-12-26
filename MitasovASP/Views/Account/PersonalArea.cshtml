@@ -1,0 +1,57 @@
+﻿<style>
+    header a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: #ffffff
+    }
+
+        header a:hover {
+            color: #E6F5FF;
+        }
+
+    footer a {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        color: rgb(105, 105, 105);
+        text-decoration: underline
+    }
+
+        footer a:hover {
+            color: #E6F5FF;
+            text-decoration: underline;
+        }
+</style>
+@{
+    ViewBag.title = "Личный кабинет";
+}
+<div class="main">
+    <table width="100%">
+        <tr>
+            <td width="20%"><img src="~/user.svg" width="100%"></td>
+            <td>
+                <table cellspacing="20px">
+                    <tr>
+                        <td align="right">Логин:</td>
+                        <td><b>login</b></td>
+                        <td>@Html.ActionLink("Поменять пароль", "Repassword", "Account")</td>
+                    </tr>
+                    <tr>
+                        <td align="right">E-mail:</td>
+                        <td><b>@User.Identity.Name</b></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Номер телефона:</td>
+                        <td><b>+7(977)789 02-34</b></td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top">@Html.ActionLink("Выйти", "Logout", "Account")</td>
+        </tr>
+    </table>
+    <br><hr><br>
+    <h3>
+        Список заказов</h1>
+        <br>
+        <center>У вас пока нет заказов</center>
+        <br>
+</div>
